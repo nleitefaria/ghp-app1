@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect, BrowserRouter} from 'react-router-dom';
+import { Switch, Route, Redirect} from 'react-router-dom';
 import {
 	  Collapse,
 	  Navbar,
@@ -56,13 +56,13 @@ class App extends Component
 								</Nav>
 								</Collapse>
 								</Navbar>
-								<BrowserRouter>
+								
 								<Switch>
 								    <Route exact path="/" render={() => (<Redirect to="/home" />)} /> 
 									<Route path='/home' component={Home}/>
 									<Route path='/p1' component={P1}/>
 								</Switch> 
-								</BrowserRouter>
+								
 								</Col>
 							</Row>
 						</Container>
