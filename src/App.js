@@ -11,7 +11,6 @@ import {
 } from 'reactstrap';
 
 import Home from './components/Home.js';
-import P1 from './components/P1.js';
 
 import './App.css';
 
