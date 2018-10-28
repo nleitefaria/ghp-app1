@@ -13,7 +13,6 @@ import {
 import Home from './components/Home.js';
 import P1 from './components/P1.js';
 
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component 
