@@ -6,31 +6,28 @@ import {
 	} from "react-router-dom";
 
 import Home from './Home';
-import Stuff from './Stuff';
+import Financials from './Financials';
 	
 
 class Main extends Component {
 	  render() {
 	    return (
-	    	<HashRouter>
-	        <div>
-	          <ul>
-	          <li><NavLink to="/">Home</NavLink></li>
-	            <li><NavLink to="/stuff">Stuff</NavLink></li>
-	          </ul>
-	          <div>
-	          
-	          <div className="content">
-	          <Route exact path="/" component={Home}/>
-	          <Route path="/stuff" component={Stuff}/>
-	            
-	          </div>
-	             
-	          </div>
-	        </div>
-	        </HashRouter>
+	    		<HashRouter>
+	            <div>
+	              <ul className="header">
+	                <li><NavLink to="/">Home</NavLink></li>
+	                <li><NavLink to="/financials">Financials</NavLink></li>
+	                
+	              </ul>
+	              <div className="content">
+	              	<Route exact path="/" component={Home}/>
+	                <Route path="/financials" component={Financials}/>
+	                
+	              </div>
+	            </div>
+	          </HashRouter>
 	    );
 	  }
-	}
+}
 	 
-	export default Main;
+export default Main;
