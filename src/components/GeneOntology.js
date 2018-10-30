@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Breadcrumb, BreadcrumbItem} from 'reactstrap';
 import classnames from 'classnames';
 
-class Financials extends Component
+class GeneOntology extends Component
 {
 	
 	constructor(props) 
@@ -22,6 +22,23 @@ class Financials extends Component
 	      });
 	    }
 	  }
+	  
+	  componentDidMount() {
+		  this.fetchUsers();
+	  }
+	  
+	  fetchUsers() {
+		  // Where we're fetching data from
+		  fetch(`https://www.ebi.ac.uk/QuickGO/services/ontology/go/about`)
+		    // We get the API response and receive data in JSON format...
+		    .then(response => response.json())
+		    // ...then we update the users state
+		    .then(data =>
+		      console.log(data)
+		    )
+		    // Catch any errors we hit and update the app
+		    .catch(error => this.setState({ error, isLoading: false }));
+		}
 
 	  render() 
 	  {
@@ -29,7 +46,7 @@ class Financials extends Component
 	      <div>
 	      	<Breadcrumb>
 	      		<BreadcrumbItem><a href="/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
-	      		<BreadcrumbItem active>Financials</BreadcrumbItem>
+	      		<BreadcrumbItem active>Gene Ontology</BreadcrumbItem>
 	      	</Breadcrumb>	        
 	      	<br></br> 
 	               	        
@@ -81,4 +98,4 @@ class Financials extends Component
 	  }
 }
 	 
-export default Financials;
+export default GeneOntology;

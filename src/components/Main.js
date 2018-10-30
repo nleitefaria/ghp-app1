@@ -12,8 +12,8 @@ import
 from 'reactstrap';
 
 import Home from './Home';
-import Financials from './Financials';
-import Profile from './Profile';
+import GeneOntology from './GeneOntology';
+import EvidenceConclusionOntology from './EvidenceConclusionOntology';
 	
 class Main extends Component 
 {
@@ -27,14 +27,14 @@ class Main extends Component
 	            					<Col>
 	            						<ul className="header">
 	            							<li><NavLink to="/">Home</NavLink></li>
-	            							<li><NavLink to="/financials">Financials</NavLink></li>
-	            							<li><NavLink to="/profile">Profile</NavLink></li>
+	            							<li><NavLink to="/gene-ontology">Gene Ontology</NavLink></li>
+	            							<li><NavLink to="/evidence-conclusion-ontology">Evidence and Conclusion Ontology</NavLink></li>
 	            						</ul>
 	            					
 	            						<div className="content">
 	            							<Route exact path="/" component={Home}/>
-	            							<Route path="/financials" component={Financials}/>
-	            							<Route path="/profile" component={Profile}/>
+	            							<Route path="/gene-ontology" component={GeneOntology}/>
+	            							<Route path="/evidence-conclusion-ontology" component={EvidenceConclusionOntology}/>
 	            						</div>	              		              	           	
 	            					</Col>
 	            				</Row>

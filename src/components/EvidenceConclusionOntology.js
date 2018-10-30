@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Breadcrumb, BreadcrumbItem} from 'reactstrap';
 
-class Profile extends Component 
+class EvidenceConclusionOntology extends Component 
 {
 	  render() 
 	  {
@@ -9,7 +9,7 @@ class Profile extends Component
 	      <div>
 	      <Breadcrumb>
     		<BreadcrumbItem><a href="/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
-    		<BreadcrumbItem active>Profile</BreadcrumbItem>
+    		<BreadcrumbItem active>Evidence and Conclusion Ontology</BreadcrumbItem>
     	  </Breadcrumb>	
     	  <br></br> 
     	  TODO
@@ -18,4 +18,4 @@ class Profile extends Component
 	  }
 }
 	 
-export default Profile;
+export default EvidenceConclusionOntology;
