@@ -3,17 +3,18 @@
   "version": "0.1.0",
   "homepage": "https://nleitefaria.github.io/ghp-app1/",
   "dependencies": {
-    "react": "^16.6.0",
-    "react-dom": "^16.6.0",
-    "react-scripts": "2.0.5",
-    "react-router": "^4.2.0",
-    "react-router-dom": "^4.2.2",
-    "reactstrap": "^6.0.1",
     "@devexpress/dx-react-core": "^1.2.0",
     "@devexpress/dx-react-grid": "^1.2.0",
     "@devexpress/dx-react-grid-bootstrap4": "^1.2.0",
     "axios": "^0.18.0",
-    "bootstrap": "^4.1.1"
+    "bootstrap": "^4.1.1",
+    "classnames": "^2.2.6",
+    "react": "^16.6.0",
+    "react-dom": "^16.6.0",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "2.0.5",
+    "reactstrap": "^6.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
