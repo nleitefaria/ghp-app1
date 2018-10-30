@@ -3,16 +3,18 @@ import {
 	  Route,
 	  NavLink,
 	  HashRouter
-} from "react-router-dom";
-import {
+} 
+from "react-router-dom";
+import 
+{
 	  Container, Row, Col
-} from 'reactstrap';
+} 
+from 'reactstrap';
 
 import Home from './Home';
 import Financials from './Financials';
 import Profile from './Profile';
 	
-
 class Main extends Component 
 {
 	  render() {
@@ -28,14 +30,12 @@ class Main extends Component
 	            							<li><NavLink to="/financials">Financials</NavLink></li>
 	            							<li><NavLink to="/profile">Profile</NavLink></li>
 	            						</ul>
+	            					
 	            						<div className="content">
 	            							<Route exact path="/" component={Home}/>
 	            							<Route path="/financials" component={Financials}/>
 	            							<Route path="/profile" component={Profile}/>
-	            						</div>
-	              	
-	              	
-              	
+	            						</div>	              		              	           	
 	            					</Col>
 	            				</Row>
 	            			</Container>

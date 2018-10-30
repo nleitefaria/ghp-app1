@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Breadcrumb, BreadcrumbItem} from 'reactstrap';
 
 class Profile extends Component 
 {
@@ -6,7 +7,12 @@ class Profile extends Component
 	  {
 	    return (
 	      <div>
-	        <h2>Profile</h2>	        
+	      <Breadcrumb>
+    		<BreadcrumbItem><a href="/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
+    		<BreadcrumbItem active>Profile</BreadcrumbItem>
+    	  </Breadcrumb>	
+    	  <br></br> 
+    	  TODO
 	      </div>
 	    );
 	  }

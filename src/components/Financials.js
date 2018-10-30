@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, CardText, Row, Col } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Breadcrumb, BreadcrumbItem} from 'reactstrap';
 import classnames from 'classnames';
 
 class Financials extends Component
 {
 	
-	constructor(props) {
+	constructor(props) 
+	{
 	    super(props);
 
 	    this.toggle = this.toggle.bind(this);
@@ -21,34 +22,31 @@ class Financials extends Component
 	      });
 	    }
 	  }
-	
-	
-	
-	
-	
-	  render() {
+
+	  render() 
+	  {
 	    return (
 	      <div>
-	        Financials 
-	      
-	        
-	        
-	        
-	        <Nav tabs>
+	      	<Breadcrumb>
+	      		<BreadcrumbItem><a href="/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
+	      		<BreadcrumbItem active>Financials</BreadcrumbItem>
+	      	</Breadcrumb>	        
+	      	<br></br> 
+	               	        
+	      	<Nav tabs>
 	          <NavItem>
-	            <NavLink
-	              className={classnames({ active: this.state.activeTab === '1' })}
-	              onClick={() => { this.toggle('1'); }}
-	            >
+	            <NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }} >
 	              Tab1
 	            </NavLink>
 	          </NavItem>
 	          <NavItem>
-	            <NavLink
-	              className={classnames({ active: this.state.activeTab === '2' })}
-	              onClick={() => { this.toggle('2'); }}
-	            >
-	              Moar Tabs
+	            <NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }} >
+	              Tab2
+	            </NavLink>
+	          </NavItem>
+	          <NavItem>
+	            <NavLink className={classnames({ active: this.state.activeTab === '3' })} onClick={() => { this.toggle('3'); }} >
+	              Tab3
 	            </NavLink>
 	          </NavItem>
 	        </Nav>
@@ -56,45 +54,29 @@ class Financials extends Component
 	          <TabPane tabId="1">
 	            <Row>
 	              <Col sm="12">
-	                <h4>Tab 1 Contents</h4>
+	                <br></br>
+	              	<h4>Tab 1 Contents</h4>
 	              </Col>
 	            </Row>
 	          </TabPane>
 	          <TabPane tabId="2">
 	            <Row>
-	              <Col sm="6">
-	                <Card body>
-	                  <CardTitle>Special Title Treatment</CardTitle>
-	                  <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-	                  <Button>Go somewhere</Button>
-	                </Card>
+	              <Col sm="12">
+	              	<br></br>
+	              	<h4>Tab 2 Contents</h4>
 	              </Col>
-	              <Col sm="6">
-	                <Card body>
-	                  <CardTitle>Special Title Treatment</CardTitle>
-	                  <CardText>With supporting text below as a natural lead-in to additional content.</CardText>
-	                  <Button>Go somewhere</Button>
-	                </Card>
+	            </Row>
+	          </TabPane>
+	          <TabPane tabId="3">
+	            <Row>
+	              <Col sm="12">
+	              	<br></br>
+	              	<h4>Tab 3 Contents</h4>
 	              </Col>
 	            </Row>
 	          </TabPane>
 	        </TabContent>
-	        
-	        
-	        
-	        
-	        
-	        
-	        
-	        
 	      </div>
-	      
-	      
-	      
-	      
-	      
-	      
-	      
 	    );
 	  }
 }
