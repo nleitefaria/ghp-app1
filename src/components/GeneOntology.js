@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Breadcrumb, BreadcrumbItem} from 'reactstrap';
 import classnames from 'classnames';
 import GeneOntologyAbout from './gene-ontology/GeneOntologyAbout';
+import GeneOntologySearch from './gene-ontology/GeneOntologySearch';
 
 class GeneOntology extends Component
 {
@@ -46,12 +47,12 @@ class GeneOntology extends Component
 	          </NavItem>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }} >
-	              Tab2
+	              Search
 	            </NavLink>
 	          </NavItem>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '3' })} onClick={() => { this.toggle('3'); }} >
-	              Tab3
+	              Slim
 	            </NavLink>
 	          </NavItem>
 	        </Nav>
@@ -68,7 +69,7 @@ class GeneOntology extends Component
 	            <Row>
 	              <Col sm="12">
 	              	<br></br>
-	              	<h4>Tab 2 Contents</h4>
+	              	<GeneOntologySearch></GeneOntologySearch>
 	              </Col>
 	            </Row>
 	          </TabPane>
@@ -76,7 +77,7 @@ class GeneOntology extends Component
 	            <Row>
 	              <Col sm="12">
 	              	<br></br>
-	              	<h4>Tab 3 Contents</h4>
+	              	Slim
 	              </Col>
 	            </Row>
 	          </TabPane>

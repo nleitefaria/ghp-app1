@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Table} from 'reactstrap';
 
-class GeneOntologyAbout extends Component
+class GeneOntologySearch extends Component
 {	
 	constructor(props) 
 	{
@@ -9,18 +9,20 @@ class GeneOntologyAbout extends Component
 	    this.state = {
 	      error: null,
 	      isLoaded: false,
-	      go: {}
+	      numberOfHits: null,
+	      results: []
 	    };
 	  }
 
 	  componentDidMount() {
-	    fetch("https://www.ebi.ac.uk/QuickGO/services/ontology/go/about")
+	    fetch("https://www.ebi.ac.uk/QuickGO/services/ontology/go/search?query=hi&limit=25&page=1")
 	      .then(res => res.json())
 	      .then(
 	        (result) => {
 	          this.setState({
 	            isLoaded: true,
-	            go: result.go
+	            numberOfHits: result.numberOfHits,
+	  	        results: result.results
 	          });
 	        },
 	        (error) => {
@@ -33,7 +35,7 @@ class GeneOntologyAbout extends Component
 	  }
 
 	  render() {
-	    const { error, isLoaded, go } = this.state;
+	    const { error, isLoaded, numberOfHits, results } = this.state;
 	    if (error) {
 	      return <div>Error: {error.message}</div>;
 	    } else if (!isLoaded) {
@@ -41,22 +43,11 @@ class GeneOntologyAbout extends Component
 	    } else {
 	      return (
 	        <div>        	        
-	        <Table>	        
-	        <tbody>
-	          <tr>
-	            <th scope="row"> Version</th>
-	            <td><a target="_blank" rel="noopener noreferrer" href="{go.version}">{go.version}</a></td>	            
-	          </tr>
-	          <tr>
-	            <th scope="row">Timestamp</th>
-	            <td>{go.timestamp}</td>	            
-	          </tr>	          
-	        </tbody>
-	      </Table> 
+	        {numberOfHits}
 	        </div>
 	      );
 	    }
 	  }
 }
 	 
-export default GeneOntologyAbout;
+export default GeneOntologySearch;
