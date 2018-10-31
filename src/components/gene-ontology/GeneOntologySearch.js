@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Table} from 'reactstrap';
 
 class GeneOntologySearch extends Component
 {	
@@ -44,6 +43,8 @@ class GeneOntologySearch extends Component
 	      return (
 	        <div>        	        
 	        {numberOfHits}
+	        <br></br>
+	        {results.length}
 	        </div>
 	      );
 	    }
