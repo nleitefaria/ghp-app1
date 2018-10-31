@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Breadcrumb, BreadcrumbItem} from 'reactstrap';
 import classnames from 'classnames';
+import GeneOntologyAbout from './gene-ontology/GeneOntologyAbout';
 
 class GeneOntology extends Component
 {
-	
 	constructor(props) 
 	{
 	    super(props);
@@ -24,22 +24,10 @@ class GeneOntology extends Component
 	  }
 	  
 	  componentDidMount() {
-		  this.fetchUsers();
+		  
 	  }
 	  
-	  fetchUsers() {
-		  // Where we're fetching data from
-		  fetch(`https://www.ebi.ac.uk/QuickGO/services/ontology/go/about`)
-		    // We get the API response and receive data in JSON format...
-		    .then(response => response.json())
-		    // ...then we update the users state
-		    .then(data =>
-		      console.log(data)
-		    )
-		    // Catch any errors we hit and update the app
-		    .catch(error => this.setState({ error, isLoading: false }));
-		}
-
+	  
 	  render() 
 	  {
 	    return (
@@ -53,7 +41,7 @@ class GeneOntology extends Component
 	      	<Nav tabs>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }} >
-	              Tab1
+	              About
 	            </NavLink>
 	          </NavItem>
 	          <NavItem>
@@ -71,8 +59,8 @@ class GeneOntology extends Component
 	          <TabPane tabId="1">
 	            <Row>
 	              <Col sm="12">
-	                <br></br>
-	              	<h4>Tab 1 Contents</h4>
+	                <br></br>	              	
+	              	<GeneOntologyAbout></GeneOntologyAbout>
 	              </Col>
 	            </Row>
 	          </TabPane>
