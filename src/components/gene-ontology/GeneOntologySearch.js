@@ -3,6 +3,8 @@ import { Card, Form, Input } from 'reactstrap';
 import { PagingState, CustomPaging} from '@devexpress/dx-react-grid';
 import { Grid, Table, TableHeaderRow, PagingPanel} from '@devexpress/dx-react-grid-bootstrap4';
 
+const URL = 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/search';
+
 class GeneOntologySearch extends React.PureComponent
 {	
 	constructor(props) 
@@ -67,14 +69,14 @@ class GeneOntologySearch extends React.PureComponent
 	  {	
 		  const { pageSize, currentPage } = this.state;
 		  var cPage = Number(currentPage) + 1;		  
-		  return 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/search?query=&limit=' + pageSize + '&page=' + cPage;
+		  return URL + '?query=&limit=' + pageSize + '&page=' + cPage;
 	  }
 	  
 	  queryStringWithParam(param) 
 	  {	
 		  const { pageSize, currentPage } = this.state;
 		  var cPage = Number(currentPage) + 1;		  
-		  return 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/search?query=' + param + '&limit=' + pageSize + '&page=' + cPage;
+		  return URL + '?query=' + param + '&limit=' + pageSize + '&page=' + cPage;
 	  }
 	  
 	  loadData() 

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Table} from 'reactstrap';
 
+const URL = 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/about';
+
 class GeneOntologyAbout extends Component
 {	
 	constructor(props) 
@@ -11,10 +13,10 @@ class GeneOntologyAbout extends Component
 	      isLoaded: false,
 	      go: {}
 	    };
-	  }
+	}
 
-	  componentDidMount() {
-	    fetch("https://www.ebi.ac.uk/QuickGO/services/ontology/go/about")
+	componentDidMount() {
+	    fetch(URL)
 	      .then(res => res.json())
 	      .then(
 	        (result) => {
@@ -45,7 +47,7 @@ class GeneOntologyAbout extends Component
 	        <tbody>
 	          <tr>
 	            <th scope="row"> Version</th>
-	            <td><a target="_blank" rel="noopener noreferrer" href="{go.version}">{go.version}</a></td>	            
+	            <td><a target="_blank" rel="noopener noreferrer" href={go.version}>{go.version}</a></td>	            
 	          </tr>
 	          <tr>
 	            <th scope="row">Timestamp</th>
