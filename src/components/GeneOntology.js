@@ -3,6 +3,7 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Breadcrumb, Bread
 import classnames from 'classnames';
 import GeneOntologyAbout from './gene-ontology/GeneOntologyAbout';
 import GeneOntologySearch from './gene-ontology/GeneOntologySearch';
+import GeneOntologySlim from './gene-ontology/GeneOntologySlim';
 import GeneOntologyTerms from './gene-ontology/GeneOntologyTerms';
 
 class GeneOntology extends Component
@@ -53,6 +54,11 @@ class GeneOntology extends Component
 	          </NavItem>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '3' })} onClick={() => { this.toggle('3'); }} >
+	              Slim
+	            </NavLink>
+	          </NavItem>
+	          <NavItem>
+	            <NavLink className={classnames({ active: this.state.activeTab === '4' })} onClick={() => { this.toggle('4'); }} >
 	              Terms
 	            </NavLink>
 	          </NavItem>
@@ -75,6 +81,14 @@ class GeneOntology extends Component
 	            </Row>
 	          </TabPane>
 	          <TabPane tabId="3">
+	            <Row>
+	              <Col sm="12">
+	              	<br></br>
+	              	<GeneOntologySlim></GeneOntologySlim>
+	              </Col>
+	            </Row>
+	          </TabPane>
+	          <TabPane tabId="4">
 	            <Row>
 	              <Col sm="12">
 	              	<br></br>
