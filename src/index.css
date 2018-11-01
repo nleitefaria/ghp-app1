@@ -18,11 +18,11 @@ ul.header li a {
   color: #007bff;
   font-weight: bold;
   text-decoration: none;
-  padding: 20px;
+  padding: 10px;
   display: inline-block;
 }
 .content {
-  padding: 20px;
+  padding: 10px;
 }
 .content h2 {
   padding: 0;

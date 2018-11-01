@@ -117,78 +117,32 @@ class GeneOntologySearch extends React.PureComponent
 
 	  render() 
 	  {
-		  const { error, results, rows, columns, pageSize, currentPage, totalCount } = this.state;
+		  const { error, rows, columns, pageSize, currentPage, totalCount } = this.state;
 		  if (error) 
 		  {
 			  return <div>Error: {error.message}</div>;
 		  } 
 		  else 
-		  {
-			  if(results.length !== 0)
-			  {				  
-				  return (
-	    		        <div>        	        	        	        
-	    		        	<Form onSubmit={this.handleSubmit}>
-	    	            		
-	    	            		<Input type="text" value={this.state.inputvalue} onChange={this.handleChange}/>           		
-	    	            		<br></br>
-	    	            		     		
-	    	            	</Form>	    	            		
-	    	            	
-	    	    	        <br></br>
-	    	    	        <Card style={{ position: 'relative' }}>
-	    	    	        <Grid
-	    	    	          rows={rows}
-	    	    	          columns={columns}
-	    	    	        >
-	    	    	          <PagingState
-	    	    	            currentPage={currentPage}
-	    	    	            onCurrentPageChange={this.changeCurrentPage}
-	    	    	            pageSize={pageSize}
-	    	    	          />
-	    	    	          <CustomPaging
-	    	    	            totalCount={totalCount}
-	    	    	          />
-	    	    	          <Table />
-	    	    	          <TableHeaderRow />
-	    	    	          <PagingPanel />
-	    	    	        </Grid>	    	    	        
-	    	    	      </Card>		    	    	    
-	    		        </div>
-				  );
-    		}
-	    	else
-	    	{
-	    		
+		  {		      		
 	    		return (
 	    		        <div>        	        	        	        
 	    		        	<Form onSubmit={this.handleSubmit}>
-	    	            		
-	    	            		<Input type="text" value={this.state.inputvalue} onChange={this.handleChange}/>           		
+	    		        	<br></br>
+	    	            		<Input type="text" placeholder="type query here. e.g.: hi" value={this.state.inputvalue} onChange={this.handleChange}/>           		
 	    	            		<br></br>    	            		 		
 	    	            	</Form> 	    	            	
 	    	    	        <br></br>
 	    	    	        <Card style={{ position: 'relative' }}>
-	    	    	        <Grid
-	    	    	          rows={rows}
-	    	    	          columns={columns}
-	    	    	        >
-	    	    	          <PagingState
-	    	    	            currentPage={currentPage}
-	    	    	            onCurrentPageChange={this.changeCurrentPage}
-	    	    	            pageSize={pageSize}
-	    	    	          />
-	    	    	          <CustomPaging
-	    	    	            totalCount={totalCount}
-	    	    	          />
-	    	    	          <Table />
-	    	    	          <TableHeaderRow />
-	    	    	          <PagingPanel />
-	    	    	        </Grid>	    	    	        
-	    	    	      </Card>	 
+	    	    	        	<Grid rows={rows} columns={columns} >
+	    	    	        		<PagingState currentPage={currentPage} onCurrentPageChange={this.changeCurrentPage} pageSize={pageSize} />
+	    	    	        			<CustomPaging totalCount={totalCount} />
+	    	    	          				<Table />
+	    	    	          					<TableHeaderRow />
+	    	    	          						<PagingPanel />
+	    	    	          	</Grid>	    	    	        
+	    	    	        </Card>	 
 	    		        </div>
 	    		      );
-	    	}
 	    }
 	  }
 }

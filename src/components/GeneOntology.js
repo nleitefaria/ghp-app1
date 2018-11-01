@@ -66,32 +66,28 @@ class GeneOntology extends Component
 	        <TabContent activeTab={this.state.activeTab}>
 	          <TabPane tabId="1">
 	            <Row>
-	              <Col sm="12">
-	                <br></br>	              	
+	              <Col sm="12">	                             	
 	              	<GeneOntologyAbout></GeneOntologyAbout>
 	              </Col>
 	            </Row>
 	          </TabPane>
 	          <TabPane tabId="2">
 	            <Row>
-	              <Col sm="12">
-	              	<br></br>
+	              <Col sm="12">	              	
 	              	<GeneOntologySearch></GeneOntologySearch>
 	              </Col>
 	            </Row>
 	          </TabPane>
 	          <TabPane tabId="3">
 	            <Row>
-	              <Col sm="12">
-	              	<br></br>
+	              <Col sm="12">	              	
 	              	<GeneOntologySlim></GeneOntologySlim>
 	              </Col>
 	            </Row>
 	          </TabPane>
 	          <TabPane tabId="4">
 	            <Row>
-	              <Col sm="12">
-	              	<br></br>
+	              <Col sm="12">	              	
 	              	<GeneOntologyTerms></GeneOntologyTerms>
 	              </Col>
 	            </Row>
