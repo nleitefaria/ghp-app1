@@ -8,7 +8,7 @@ import GeneOntologyTerms from './gene-ontology/GeneOntologyTerms';
 
 class GeneOntology extends Component
 {
-	constructor(props) 
+	constructor(props)
 	{
 	    super(props);
 
@@ -25,26 +25,25 @@ class GeneOntology extends Component
 	      });
 	    }
 	  }
-	  
-	  componentDidMount() {
-		  
+
+	  componentDidMount()
+		{
 	  }
-	  
-	  
-	  render() 
+
+	  render()
 	  {
 	    return (
 	      <div>
 	      	<Breadcrumb>
 	      		<BreadcrumbItem><a href="/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
 	      		<BreadcrumbItem active>Gene Ontology</BreadcrumbItem>
-	      	</Breadcrumb>	        
-	      	<br></br> 
-	               	        
+	      	</Breadcrumb>
+	      	<br></br>
+
 	      	<Nav tabs>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }} >
-	              About
+	              Terms
 	            </NavLink>
 	          </NavItem>
 	          <NavItem>
@@ -59,36 +58,36 @@ class GeneOntology extends Component
 	          </NavItem>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '4' })} onClick={() => { this.toggle('4'); }} >
-	              Terms
+	              About
 	            </NavLink>
 	          </NavItem>
 	        </Nav>
 	        <TabContent activeTab={this.state.activeTab}>
 	          <TabPane tabId="1">
 	            <Row>
-	              <Col sm="12">	                             	
-	              	<GeneOntologyAbout></GeneOntologyAbout>
+	              <Col sm="12">
+									<GeneOntologyTerms></GeneOntologyTerms>
 	              </Col>
 	            </Row>
 	          </TabPane>
 	          <TabPane tabId="2">
 	            <Row>
-	              <Col sm="12">	              	
+	              <Col sm="12">
 	              	<GeneOntologySearch></GeneOntologySearch>
 	              </Col>
 	            </Row>
 	          </TabPane>
 	          <TabPane tabId="3">
 	            <Row>
-	              <Col sm="12">	              	
+	              <Col sm="12">
 	              	<GeneOntologySlim></GeneOntologySlim>
 	              </Col>
 	            </Row>
 	          </TabPane>
 	          <TabPane tabId="4">
 	            <Row>
-	              <Col sm="12">	              	
-	              	<GeneOntologyTerms></GeneOntologyTerms>
+	              <Col sm="12">
+	              	<GeneOntologyAbout></GeneOntologyAbout>
 	              </Col>
 	            </Row>
 	          </TabPane>
@@ -97,5 +96,5 @@ class GeneOntology extends Component
 	    );
 	  }
 }
-	 
+
 export default GeneOntology;

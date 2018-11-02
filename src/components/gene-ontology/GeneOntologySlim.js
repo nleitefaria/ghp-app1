@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 
 class GeneOntologySlim extends Component
-{	
-	  render() 
+{
+	  render()
 	  {
           return (
                   <div>
-                    Slim
+                    Slim TODO
                   </div>
                 )
         }
 }
-	 
+
 export default GeneOntologySlim;
