@@ -6,8 +6,8 @@ import { Grid, Table, TableHeaderRow, PagingPanel} from '@devexpress/dx-react-gr
 const URL = 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/search';
 
 class GeneOntologySearch extends React.PureComponent
-{	
-	constructor(props) 
+{
+	constructor(props)
 	{
 	    super(props);
 	    this.state = {
@@ -29,64 +29,64 @@ class GeneOntologySearch extends React.PureComponent
 	    this.handleChange = this.handleChange.bind(this);
 	    this.handleSubmit = this.handleSubmit.bind(this);
 	    this.changeCurrentPage = this.changeCurrentPage.bind(this);
-	    
+
 	  }
 
-	  componentDidMount() 
+	  componentDidMount()
 	  {
 		  this.loadData();
 	  }
 
-	  componentDidUpdate() 
+	  componentDidUpdate()
 	  {
 		  this.loadDataWithParam(this.state.inputvalue);
 	  }
-	  
-	  
-	  handleChange (event) 
+
+
+	  handleChange (event)
 	  {
 		    this.setState({
 		        inputvalue: event.target.value
 		    })
 	  }
-	  
-	  handleSubmit (event) 
+
+	  handleSubmit (event)
 	  {
 		  this.loadData(this.state.inputvalue);
 	      event.preventDefault();
 	  }
-	  
-	  changeCurrentPage(currentPage) 
+
+	  changeCurrentPage(currentPage)
 	  {
 		    this.setState({
 		      //loading: true,
 		      currentPage: currentPage,
 		    });
-		  }
-	  
-	  
-	  queryString() 
-	  {	
+		}
+
+
+	  queryString()
+	  {
 		  const { pageSize, currentPage } = this.state;
-		  var cPage = Number(currentPage) + 1;		  
+		  var cPage = Number(currentPage) + 1;
 		  return URL + '?query=&limit=' + pageSize + '&page=' + cPage;
 	  }
-	  
-	  queryStringWithParam(param) 
-	  {	
+
+	  queryStringWithParam(param)
+	  {
 		  const { pageSize, currentPage } = this.state;
-		  var cPage = Number(currentPage) + 1;		  
+		  var cPage = Number(currentPage) + 1;
 		  return URL + '?query=' + param + '&limit=' + pageSize + '&page=' + cPage;
 	  }
-	  
-	  loadData() 
+
+	  loadData()
 	  {
 		    const queryString = this.queryString();
 		    if (queryString === this.lastQuery) {
 		      //this.setState({ loading: false });
 		      return;
 		    }
-		 
+
 		    fetch(queryString)
 		      .then(response => response.json())
 		      .then(data => this.setState({
@@ -95,17 +95,17 @@ class GeneOntologySearch extends React.PureComponent
 		        loading: false,
 		      }))
 		      .catch(() => this.setState({ loading: false }));
-		    this.lastQuery = queryString;		  
+		    this.lastQuery = queryString;
 	  }
-	  	  
-	  loadDataWithParam(param) 
+
+	  loadDataWithParam(param)
 	  {
 		    const queryString = this.queryStringWithParam(param);
 		    if (queryString === this.lastQuery) {
 		      this.setState({ loading: false });
 		      return;
 		    }
-		 
+
 		    fetch(queryString)
 		      .then(response => response.json())
 		      .then(data => this.setState({
@@ -114,25 +114,25 @@ class GeneOntologySearch extends React.PureComponent
 		        loading: false,
 		      }))
 		      .catch(() => this.setState({ loading: false }));
-		    this.lastQuery = queryString;		  
+		    this.lastQuery = queryString;
 	  }
 
-	  render() 
+	  render()
 	  {
 		  const { error, rows, columns, pageSize, currentPage, totalCount } = this.state;
-		  if (error) 
+		  if (error)
 		  {
 			  return <div>Error: {error.message}</div>;
-		  } 
-		  else 
-		  {		      		
+		  }
+		  else
+		  {
 	    		return (
-	    		        <div>        	        	        	        
+	    		        <div>
 	    		        	<Form onSubmit={this.handleSubmit}>
 	    		        	<br></br>
-	    	            		<Input type="text" placeholder="type query here. e.g.: hi" value={this.state.inputvalue} onChange={this.handleChange}/>           		
-	    	            		<br></br>    	            		 		
-	    	            	</Form> 	    	            	
+	    	            		<Input type="text" placeholder="type query here. e.g.: hi" value={this.state.inputvalue} onChange={this.handleChange}/>
+	    	            		<br></br>
+	    	            	</Form>
 	    	    	        <br></br>
 	    	    	        <Card style={{ position: 'relative' }}>
 	    	    	        	<Grid rows={rows} columns={columns} >
@@ -141,12 +141,12 @@ class GeneOntologySearch extends React.PureComponent
 	    	    	          				<Table />
 	    	    	          					<TableHeaderRow />
 	    	    	          						<PagingPanel />
-	    	    	          	</Grid>	    	    	        
-	    	    	        </Card>	 
+	    	    	          	</Grid>
+	    	    	        </Card>
 	    		        </div>
 	    		      );
 	    }
 	  }
 }
-	 
+
 export default GeneOntologySearch;
