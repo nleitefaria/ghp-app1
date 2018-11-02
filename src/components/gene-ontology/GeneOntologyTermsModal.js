@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-const URL = 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/TODO';
+//const URL = 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/TODO';
 
 class GeneOntologyTermsModal extends React.PureComponent
 {
