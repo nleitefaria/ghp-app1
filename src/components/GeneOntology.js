@@ -35,7 +35,7 @@ class GeneOntology extends Component
 	    return (
 	      <div>
 	      	<Breadcrumb>
-	      		<BreadcrumbItem><a href="/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
+	      		<BreadcrumbItem><a href="/#/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
 	      		<BreadcrumbItem active>Gene Ontology</BreadcrumbItem>
 	      	</Breadcrumb>
 	      	<br></br>
