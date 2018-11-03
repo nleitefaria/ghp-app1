@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const URL = 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms/';
 
@@ -60,7 +60,7 @@ class GeneOntologyTermsModal extends React.PureComponent
     return (
       <div>
         <Button color="primary" size="sm" onClick={this.toggle}>Details</Button>
-        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} size="lg">
         <ModalHeader toggle={this.toggle}>{this.props.id}</ModalHeader>
         <ModalBody>
           <br></br>
@@ -68,8 +68,53 @@ class GeneOntologyTermsModal extends React.PureComponent
                 {this.state.results.map(function(d, idx){
                    return (
                      <div key={idx}>
-                       <b>{d.name}</b><br></br><br></br>
-                       {d.definition.text}
+                       <Container>
+                          <Row>
+                            <Col xs="2"><b>Name:</b></Col>
+                            <Col xs="10">{d.name}</Col>
+                          </Row>
+                          <Row>
+                            <Col xs="12"><hr></hr></Col>
+                          </Row>
+                          <Row>
+                            <Col xs="2"><b>Definition:</b></Col>
+                            <Col xs="10"><div>{d.definition.text}</div></Col>
+                          </Row>
+                          <Row>
+                            <Col xs="12"><hr></hr></Col>
+                          </Row>
+                          <Row>
+                            <Col xs="2"><b>Aspect:</b></Col>
+                            <Col xs="10"><div>{d.aspect}</div></Col>
+                          </Row>
+                          <Row>
+                            <Col xs="12"><hr></hr></Col>
+                          </Row>
+                          <Row>
+                            <Col xs="2"><b>Usage:</b></Col>
+                            <Col xs="10"><div>{d.usage}</div></Col>
+                          </Row>
+                          <Row>
+                            <Col xs="12"><hr></hr></Col>
+                          </Row>
+                          <Row>
+                            <Col xs="2"><b>Obsolete:</b></Col>
+                            <Col xs="10">
+                              <div>
+                                {d.isObsolete === true &&
+                                    <span>
+                                      Yes
+                                    </span>
+                                }
+                                {d.isObsolete === false &&
+                                    <span>
+                                      No
+                                    </span>
+                                }
+                              </div>
+                            </Col>
+                          </Row>
+                        </Container>
                      </div>
                    )
                  })}
