@@ -35,7 +35,7 @@ class EvidenceConclusionOntology extends Component
 	      <div>
 	      	<Breadcrumb>
 	      		<BreadcrumbItem><a href="/#/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
-	      		<BreadcrumbItem active>Gene Ontology</BreadcrumbItem>
+	      		<BreadcrumbItem active>Evidence Conclusion Ontology</BreadcrumbItem>
 	      	</Breadcrumb>
 	      	<br></br>
 

@@ -9,7 +9,7 @@ const URL = 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms';
 const ActionCell = ({ id }) => (
   <Table.Cell>
     <span>
-				<GeneOntologyTermsModal id={id}/>
+		<GeneOntologyTermsModal id={id}/>
     </span>
   </Table.Cell>
 );

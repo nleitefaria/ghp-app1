@@ -9,7 +9,7 @@ const URL = 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/search';
 const ActionCell = ({ id }) => (
   <Table.Cell>
     <span>
-				<GeneOntologyTermsModal id={id}/>
+		<GeneOntologyTermsModal id={id}/>
     </span>
   </Table.Cell>
 );
@@ -30,20 +30,20 @@ class GeneOntologySearch extends React.PureComponent
 	    this.state = {
 	      inputvalue: '',
 	      error: null,
-	      //isLoaded: false,
+	      // isLoaded: false,
 	      results: [],
 	      columns: [
 	          { name: 'id', title: 'ID' },
 	          { name: 'name', title: 'Name'},
 	          { name: 'aspect', title: 'Aspect' },
-						{ name: "action", title: "Action" }
-	        ],
-	        rows: [],
-	        totalCount: 0,
-	        pageSize: 5,
-	        currentPage: 0,
-	        loading: true,
-					modal: false
+			  { name: "action", title: "Action" }
+	      ],
+	      rows: [],
+	      totalCount: 0,
+	      pageSize: 5,
+	      currentPage: 0,
+	      loading: true,
+		  modal: false
 	    };
 	    this.handleChange = this.handleChange.bind(this);
 	    this.handleSubmit = this.handleSubmit.bind(this);
@@ -79,7 +79,7 @@ class GeneOntologySearch extends React.PureComponent
 	  changeCurrentPage(currentPage)
 	  {
 		    this.setState({
-		      //loading: true,
+		      // loading: true,
 		      currentPage: currentPage,
 		    });
 		}
@@ -110,7 +110,7 @@ class GeneOntologySearch extends React.PureComponent
 	  {
 		    const queryString = this.queryString();
 		    if (queryString === this.lastQuery) {
-		      //this.setState({ loading: false });
+		      // this.setState({ loading: false });
 		      return;
 		    }
 
