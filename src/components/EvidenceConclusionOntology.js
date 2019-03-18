@@ -15,27 +15,28 @@ class EvidenceConclusionOntology extends Component
 	    this.state = {
 	      activeTab: '1'
 	    };
-	  }
+	}
 
-	  toggle(tab) {
+	toggle(tab) 
+	{
 	    if (this.state.activeTab !== tab) {
 	      this.setState({
 	        activeTab: tab
 	      });
 	    }
-	  }
+	}
 
-	  componentDidMount()
-		{
-	  }
+	componentDidMount()
+	{
+	}
 
-	  render()
-	  {
+	render()
+	{
 	    return (
 	      <div>
 	      	<Breadcrumb>
 	      		<BreadcrumbItem><a href="/#/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
-	      		<BreadcrumbItem active>Evidence Conclusion Ontology</BreadcrumbItem>
+	      		<BreadcrumbItem active>Evidence and Conclusion Ontology</BreadcrumbItem>
 	      	</Breadcrumb>
 	      	<br></br>
 
@@ -69,7 +70,7 @@ class EvidenceConclusionOntology extends Component
 	        </TabContent>
 	      </div>
 	    );
-	  }
+	}
 }
 	 
 export default EvidenceConclusionOntology;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'reactstrap';
+import { Card, Form, Input } from 'reactstrap';
 import { PagingState, CustomPaging} from '@devexpress/dx-react-grid';
 import { Grid, Table, TableHeaderRow, PagingPanel} from '@devexpress/dx-react-grid-bootstrap4';
 import EvidenceConclusionOntologyTermsModal from './EvidenceConclusionOntologyTermsModal';
@@ -29,6 +29,7 @@ class EvidenceConclusionOntologyTerms extends React.Component
 		super(props);
 		this.state = {
 			error: null,
+			inputvalue: '',
 			//isLoaded: false,
 			results: [],
 			columns: [
@@ -37,8 +38,9 @@ class EvidenceConclusionOntologyTerms extends React.Component
 				{ name: "action", title: "Action" }
 			],
 			rows: [],
-			totalCount: 0,
-			currentPage: 0,
+		    totalCount: 0,
+		    pageSize: 5,
+		    currentPage: 0,
 			loading: true,
 			modal: false
 		};
@@ -50,12 +52,12 @@ class EvidenceConclusionOntologyTerms extends React.Component
 
 	componentDidMount()
 	{
-	  this.loadData();
+		this.loadData();
 	}
 
 	componentDidUpdate()
 	{
-	  this.loadData();
+		this.loadDataWithParam(this.state.inputvalue);
 	}
 
 	toggle()
@@ -89,11 +91,17 @@ class EvidenceConclusionOntologyTerms extends React.Component
 	queryString()
 	{
 		const { currentPage } = this.state;
-		var cPage = Number(currentPage) + 1;
-		return URL + '?query=hi&page=' + cPage;
-		//TODO: REMOVE PARAMS FROM QUERY
-		//return URL + '?page=' + cPage;
+		var cPage = Number(currentPage) + 1;	
+		return URL + '?page=' + cPage;
 	}
+	
+	queryStringWithParam(param)
+	{
+		const { pageSize, currentPage } = this.state;
+		var cPage = Number(currentPage) + 1;
+		return URL + '?query=' + param + '&limit=' + pageSize + '&page=' + cPage;
+	}
+
 
 	loadData()
 	{
@@ -101,17 +109,37 @@ class EvidenceConclusionOntologyTerms extends React.Component
 	    if (queryString === this.lastQuery) {
 	      //this.setState({ loading: false });
 	      return;
-	}
+	    }
 
-	fetch(queryString)
+	    fetch(queryString)
 	      .then(response => response.json())
 	      .then(data => this.setState({
 	        rows: data.results,
 	        totalCount: data.pageInfo.total,
 	        loading: false,
 	      }))
-	      .catch(() => this.setState({ loading: false }));
+	    .catch(() => this.setState({ loading: false }));
 	    this.lastQuery = queryString;
+	}
+	
+	loadDataWithParam(param)
+	{
+		const queryString = this.queryStringWithParam(param);
+		if (queryString === this.lastQuery) 
+		{
+			//this.setState({ loading: false });
+		    return;
+		}
+
+		fetch(queryString)
+		      .then(response => response.json())
+		      .then(data => this.setState({
+		        rows: data.results,
+		        totalCount: data.pageInfo.total,
+		        loading: false,
+		      }))
+		      .catch(() => this.setState({ loading: false }));
+		this.lastQuery = queryString;
 	}
 
 	render()
@@ -126,6 +154,11 @@ class EvidenceConclusionOntologyTerms extends React.Component
 		{
     		return (
     		        <div>
+    		        	<Form onSubmit={this.handleSubmit}>
+    		        	<br></br>
+	            			<Input type="text" placeholder="type query here. e.g.: hi" value={this.state.inputvalue} onChange={this.handleChange}/>
+	            		<br></br>
+	            		</Form>
     	    	        <br></br>
     	    	        <Card style={{ position: 'relative' }}>
     	    	        	<Grid rows={rows} columns={columns}>

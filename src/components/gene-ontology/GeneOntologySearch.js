@@ -48,8 +48,7 @@ class GeneOntologySearch extends React.PureComponent
 	    this.handleChange = this.handleChange.bind(this);
 	    this.handleSubmit = this.handleSubmit.bind(this);
 	    this.changeCurrentPage = this.changeCurrentPage.bind(this);
-			this.toggle = this.toggle.bind(this);
-
+		this.toggle = this.toggle.bind(this);
 	  }
 
 	  componentDidMount()
@@ -63,34 +62,33 @@ class GeneOntologySearch extends React.PureComponent
 	  }
 
 
-		handleChange (event)
-	 {
-			 this.setState({
-					 inputvalue: event.target.value
-			 })
-	 }
+	  handleChange (event)
+	  {
+		  this.setState({
+			  inputvalue: event.target.value
+		  })
+	  }
 
-	 handleSubmit (event)
-	 {
+	  handleSubmit (event)
+	  {
 		   this.loadData(this.state.inputvalue);
-			 event.preventDefault();
-	 }
+		   event.preventDefault();
+	  }
 
 	  changeCurrentPage(currentPage)
 	  {
-		    this.setState({
+		   this.setState({
 		      // loading: true,
 		      currentPage: currentPage,
-		    });
-		}
+		   });
+	  }
 
-		toggle()
-		{
-    	this.setState({
-      	modal: !this.state.modal
-    	});
-  	}
-
+	  toggle()
+	  {
+		  this.setState({
+			  modal: !this.state.modal
+		  });
+	  }
 
 	  queryString()
 	  {
@@ -165,9 +163,9 @@ class GeneOntologySearch extends React.PureComponent
 	    	    	        	<Grid rows={rows} columns={columns} >
 	    	    	        		<PagingState currentPage={currentPage} onCurrentPageChange={this.changeCurrentPage} pageSize={pageSize} />
 	    	    	        			<CustomPaging totalCount={totalCount} />
-															<Table cellComponent={Cell}/>
-																<TableHeaderRow />
-																	<PagingPanel />
+											<Table cellComponent={Cell}/>
+												<TableHeaderRow />
+													<PagingPanel />
 	    	    	          	</Grid>
 	    	    	        </Card>
 	    		        </div>
