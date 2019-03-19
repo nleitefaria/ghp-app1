@@ -3,7 +3,7 @@ import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter
 
 const URL = 'https://www.ebi.ac.uk/QuickGO/services/ontology/eco/terms/';
 
-class EvidenceConclusionOntologyTermsModal extends React.PureComponent
+class EvidenceConclusionOntologySearchModal extends React.PureComponent
 {
   constructor(props)
   {
@@ -130,4 +130,4 @@ class EvidenceConclusionOntologyTermsModal extends React.PureComponent
   }
 }
 
-export default EvidenceConclusionOntologyTermsModal;
+export default EvidenceConclusionOntologySearchModal;
