@@ -3,7 +3,6 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Breadcrumb, Bread
 import classnames from 'classnames';
 import GeneOntologyAbout from './gene-ontology/GeneOntologyAbout';
 import GeneOntologySearch from './gene-ontology/GeneOntologySearch';
-import GeneOntologySlim from './gene-ontology/GeneOntologySlim';
 import GeneOntologyTerms from './gene-ontology/GeneOntologyTerms';
 
 class GeneOntology extends Component
@@ -35,7 +34,7 @@ class GeneOntology extends Component
 	    return (
 	      <div>
 	      	<Breadcrumb>
-	      		<BreadcrumbItem><a href="/#/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
+	      		<BreadcrumbItem><a href="/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
 	      		<BreadcrumbItem active>Gene Ontology</BreadcrumbItem>
 	      	</Breadcrumb>
 	      	<br></br>
@@ -50,12 +49,7 @@ class GeneOntology extends Component
 	            <NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }} >
 	              Search
 	            </NavLink>
-	          </NavItem>
-	          <NavItem>
-	            <NavLink className={classnames({ active: this.state.activeTab === '3' })} onClick={() => { this.toggle('3'); }} >
-	              Slim
-	            </NavLink>
-	          </NavItem>
+	          </NavItem>	          
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '4' })} onClick={() => { this.toggle('4'); }} >
 	              About
@@ -66,7 +60,7 @@ class GeneOntology extends Component
 	          <TabPane tabId="1">
 	            <Row>
 	              <Col sm="12">
-									<GeneOntologyTerms></GeneOntologyTerms>
+					<GeneOntologyTerms></GeneOntologyTerms>
 	              </Col>
 	            </Row>
 	          </TabPane>
@@ -74,13 +68,6 @@ class GeneOntology extends Component
 	            <Row>
 	              <Col sm="12">
 	              	<GeneOntologySearch></GeneOntologySearch>
-	              </Col>
-	            </Row>
-	          </TabPane>
-	          <TabPane tabId="3">
-	            <Row>
-	              <Col sm="12">
-	              	<GeneOntologySlim></GeneOntologySlim>
 	              </Col>
 	            </Row>
 	          </TabPane>

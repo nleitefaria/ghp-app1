@@ -35,7 +35,7 @@ class EvidenceConclusionOntology extends Component
 	    return (
 	      <div>
 	      	<Breadcrumb>
-	      		<BreadcrumbItem><a href="/#/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
+	      		<BreadcrumbItem><a href="/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
 	      		<BreadcrumbItem active>Evidence and Conclusion Ontology</BreadcrumbItem>
 	      	</Breadcrumb>
 	      	<br></br>
@@ -50,7 +50,7 @@ class EvidenceConclusionOntology extends Component
 	            <NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }} >
 	              Search
 	            </NavLink>
-	          </NavItem>         
+	          </NavItem>	          
 	        </Nav>
 	        <TabContent activeTab={this.state.activeTab}>
 	          <TabPane tabId="1">
@@ -66,7 +66,7 @@ class EvidenceConclusionOntology extends Component
 	              	<EvidenceConclusionOntologySearch></EvidenceConclusionOntologySearch>
 	              </Col>
 	            </Row>
-	          </TabPane>          
+	          </TabPane>	          
 	        </TabContent>
 	      </div>
 	    );

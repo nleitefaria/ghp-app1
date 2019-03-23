@@ -82,21 +82,7 @@ class EvidenceConclusionOntologySearchModal extends React.PureComponent
                           </Row>
                           <Row>
                             <Col xs="12"><hr></hr></Col>
-                          </Row>
-                          <Row>
-                            <Col xs="2"><b>Aspect:</b></Col>
-                            <Col xs="10"><div>{d.aspect}</div></Col>
-                          </Row>
-                          <Row>
-                            <Col xs="12"><hr></hr></Col>
-                          </Row>
-                          <Row>
-                            <Col xs="2"><b>Usage:</b></Col>
-                            <Col xs="10"><div>{d.usage}</div></Col>
-                          </Row>
-                          <Row>
-                            <Col xs="12"><hr></hr></Col>
-                          </Row>
+                          </Row>                         
                           <Row>
                             <Col xs="2"><b>Obsolete:</b></Col>
                             <Col xs="10">

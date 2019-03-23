@@ -1,10 +1,16 @@
 import React from 'react';
-import { Card } from 'reactstrap';
+import { Card, Row, Col } from 'reactstrap';
 import { PagingState, CustomPaging} from '@devexpress/dx-react-grid';
 import { Grid, Table, TableHeaderRow, PagingPanel} from '@devexpress/dx-react-grid-bootstrap4';
 import EvidenceConclusionOntologyTermsModal from './EvidenceConclusionOntologyTermsModal';
+import Loading from '../Loading';
 
 const URL = 'https://www.ebi.ac.uk/QuickGO/services/ontology/eco/terms';
+
+var divLoading =
+{
+    'float': 'left', 'width': '300px', 'paddingTop': '0px', 'paddingLeft': '10px'
+};
 
 const ActionCell = ({ id }) => (
 		  <Table.Cell>
@@ -30,7 +36,6 @@ class EvidenceConclusionOntologyTerms extends React.Component
 		this.state = {
 			error: null,
 			inputvalue: '',
-			//isLoaded: false,
 			results: [],
 			columns: [
 				{ name: 'id', title: 'ID' },
@@ -39,7 +44,6 @@ class EvidenceConclusionOntologyTerms extends React.Component
 			],
 			rows: [],
 		    totalCount: 0,
-		    pageSize: 5,
 		    currentPage: 0,
 			loading: true,
 			modal: false
@@ -62,6 +66,7 @@ class EvidenceConclusionOntologyTerms extends React.Component
 	toggle()
 	{
 		this.setState({
+			loading: true,
 			modal: !this.state.modal
 		});
 	}
@@ -82,7 +87,7 @@ class EvidenceConclusionOntologyTerms extends React.Component
 	changeCurrentPage(currentPage)
 	{
 	    this.setState({
-	      //loading: true,
+	      loading: true,
 	      currentPage: currentPage,
 	    });
 	}
@@ -98,10 +103,10 @@ class EvidenceConclusionOntologyTerms extends React.Component
 	{
 	    const queryString = this.queryString();
 	    if (queryString === this.lastQuery) {
-	      //this.setState({ loading: false });
-	      return;
+	    	//this.setState({ loading: false });
+	    	return;
 	    }
-
+  
 	    fetch(queryString)
 	      .then(response => response.json())
 	      .then(data => this.setState({
@@ -126,6 +131,9 @@ class EvidenceConclusionOntologyTerms extends React.Component
     		return (
     		        <div>   		        	
     	    	        <br></br>
+    	    	        <Row>
+	    	        		<Col xs="6"><div style={divLoading}>{this.state.loading && <Loading />}</div></Col>
+	    	        	</Row>
     	    	        <Card style={{ position: 'relative' }}>
     	    	        	<Grid rows={rows} columns={columns}>
     	    	        		<PagingState currentPage={currentPage} onCurrentPageChange={this.changeCurrentPage} pageSize={pageSize} />
