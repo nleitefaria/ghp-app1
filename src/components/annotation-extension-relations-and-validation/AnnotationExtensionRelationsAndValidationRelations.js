@@ -37,17 +37,16 @@ class AnnotationExtensionRelationsAndValidationRelations extends Component
 			loading: true,
 			results: [],
 			columns: [
-				{ name: 'id', title: 'ID' },				
-				{ name: 'usage', title: 'Usage' },
+				{ name: 'id', title: 'ID' },								
 				{ name: "action", title: "Action" }
-			],
+			],			
 			rows: [],
 			totalCount: 0,
 			modal: false
 		};
-		this.toggle = this.toggle.bind(this);
+		this.toggle = this.toggle.bind(this);		
 	}
-	
+
 	componentDidMount()
 	{
 		this.loadData();
@@ -88,7 +87,6 @@ class AnnotationExtensionRelationsAndValidationRelations extends Component
 	    this.lastQuery = queryString;
 	}
 
-
 	render()
 	{
 		const { error, rows, columns } = this.state;
@@ -107,17 +105,14 @@ class AnnotationExtensionRelationsAndValidationRelations extends Component
     	    	        </Row>
     	    	        <Card style={{ position: 'relative' }}>
     	    	        	<Grid rows={rows} columns={columns}>
-    	    	        		
-    	    	          				<Table cellComponent={Cell}/>
-    	    	          					<TableHeaderRow />
-    	    	          							
+    	    	          		<Table cellComponent={Cell}/>  	    	          		
+    	    	          			<TableHeaderRow />			
     	    	          	</Grid>
     	    	        </Card>
     		        </div>
     		      );
 		}
-	}
-	  
+	}  
 }
 	 
 export default AnnotationExtensionRelationsAndValidationRelations;

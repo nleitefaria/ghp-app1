@@ -33,7 +33,7 @@ class AnnotationExtensionRelationsAndValidation extends Component
 	      <div>
 	      	<Breadcrumb>
 	      		<BreadcrumbItem><a href="/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
-	      		<BreadcrumbItem active>Annotation extension relations and validation</BreadcrumbItem>
+	      		<BreadcrumbItem active>Annotation Extension Relations and Validation</BreadcrumbItem>
 	      	</Breadcrumb>
 	      	<br></br>
 

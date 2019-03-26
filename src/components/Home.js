@@ -15,7 +15,9 @@ class Home extends Component {
 			      	<div>			      		
 			      			- <NavLink to="/gene-ontology">Gene Ontology</NavLink>	
 			      			<br></br>			      			
-			      			- <NavLink to="/evidence-conclusion-ontology">Evidence and Conclusion Ontology</NavLink>			      		
+			      			- <NavLink to="/evidence-conclusion-ontology">Evidence and Conclusion Ontology</NavLink>
+			      			<br></br>			      			
+			      			- <NavLink to="/annotation-extension-relations-and-validation">Annotation Extension Relations and Validation Relations</NavLink>
 			      	</div>					   
 			      </div>
 			    );
