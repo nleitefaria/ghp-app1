@@ -7,7 +7,7 @@ import {
 from "react-router-dom";
 import 
 {
-	  Container, Row, Col
+	Button, Dropdown, DropdownToggle, DropdownMenu, DropdownItem, Container, Row, Col
 } 
 from 'reactstrap';
 
@@ -18,6 +18,21 @@ import AnnotationExtensionRelationsAndValidation from './AnnotationExtensionRela
 	
 class Main extends Component 
 {
+	constructor(props) {
+	    super(props);
+
+	    this.toggle = this.toggle.bind(this);
+	    this.state = {
+	      dropdownOpen: false
+	    };
+	  }
+
+	  toggle() {
+	    this.setState(prevState => ({
+	      dropdownOpen: !prevState.dropdownOpen
+	    }));
+	  }
+	  
 	  render() {
 	    return (
 	    		<HashRouter>
@@ -26,12 +41,27 @@ class Main extends Component
 	            			<Container>
 	            				<Row>
 	            					<Col>
-	            						<ul className="header">
-	            							<li><NavLink to="/">Home</NavLink></li>
-	            							<li><NavLink to="/gene-ontology">Gene Ontology</NavLink></li>
-	            							<li><NavLink to="/evidence-conclusion-ontology">Evidence and Conclusion Ontology</NavLink></li>
-	            							<li><NavLink to="/annotation-extension-relations-and-validation">Annotation Extension Relations and Validation</NavLink></li>
-	            						</ul>
+	            						<div className="header">	            							
+	            							<Container>
+	            								<Row>
+	            									<Col xs="auto">	            								            								
+	            										<Button color="link"><NavLink to="/">Home</NavLink></Button>
+	            									</Col>
+	            									<Col xs="auto">            							
+	            										<Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+	            											<DropdownToggle caret color="link">
+	            												Ontologies
+	            											</DropdownToggle>
+	            											<DropdownMenu>	            					          
+	            												<DropdownItem><NavLink to="/gene-ontology">Gene Ontology</NavLink></DropdownItem>
+	            												<DropdownItem><NavLink to="/evidence-conclusion-ontology">Evidence and Conclusion Ontology</NavLink></DropdownItem>	            					          
+	            												<DropdownItem><NavLink to="/annotation-extension-relations-and-validation">Annotation Extension Relations and Validation</NavLink></DropdownItem>				          
+	            											</DropdownMenu>
+	            										</Dropdown>
+	            									</Col>
+	            								</Row>	            						
+	            							</Container>          					              								            							
+	            						</div>
 	            					
 	            						<div className="content">
 	            							<Route exact path="/" component={Home}/>
