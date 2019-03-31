@@ -15,23 +15,32 @@ import Home from './Home';
 import GeneOntology from './GeneOntology';
 import EvidenceConclusionOntology from './EvidenceConclusionOntology';
 import AnnotationExtensionRelationsAndValidation from './AnnotationExtensionRelationsAndValidation';
+import Annotations from './Annotations';
 	
 class Main extends Component 
 {
 	constructor(props) {
 	    super(props);
 
-	    this.toggle = this.toggle.bind(this);
+	    this.toggle1 = this.toggle1.bind(this);
+	    this.toggle2 = this.toggle2.bind(this);
 	    this.state = {
-	      dropdownOpen: false
+	      dropdown1Open: false,
+	      dropdown2Open: false
 	    };
 	  }
 
-	  toggle() {
+	  toggle1() {
 	    this.setState(prevState => ({
-	      dropdownOpen: !prevState.dropdownOpen
+	      dropdown1Open: !prevState.dropdown1Open
 	    }));
 	  }
+	  
+	  toggle2() {
+		    this.setState(prevState => ({
+		      dropdown2Open: !prevState.dropdown2Open
+		    }));
+		  }
 	  
 	  render() {
 	    return (
@@ -48,7 +57,7 @@ class Main extends Component
 	            										<Button color="link"><NavLink to="/">Home</NavLink></Button>
 	            									</Col>
 	            									<Col xs="auto">            							
-	            										<Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+	            										<Dropdown isOpen={this.state.dropdown1Open} toggle={this.toggle1}>
 	            											<DropdownToggle caret color="link">
 	            												Ontologies
 	            											</DropdownToggle>
@@ -59,6 +68,16 @@ class Main extends Component
 	            											</DropdownMenu>
 	            										</Dropdown>
 	            									</Col>
+	            									<Col xs="auto">            							
+            										<Dropdown isOpen={this.state.dropdown2Open} toggle={this.toggle2}>
+            											<DropdownToggle caret color="link">
+            												Annotations
+            											</DropdownToggle>
+            											<DropdownMenu>	            					          
+            												<DropdownItem><NavLink to="/annotations">Annotations</NavLink></DropdownItem>										
+            											</DropdownMenu>
+            										</Dropdown>
+            									</Col>
 	            								</Row>	            						
 	            							</Container>          					              								            							
 	            						</div>
@@ -67,7 +86,8 @@ class Main extends Component
 	            							<Route exact path="/" component={Home}/>
 	            							<Route path="/gene-ontology" component={GeneOntology}/>
 	            							<Route path="/evidence-conclusion-ontology" component={EvidenceConclusionOntology}/>
-	            							<Route path="/annotation-extension-relations-and-validation" component={AnnotationExtensionRelationsAndValidation}/>		
+	            							<Route path="/annotation-extension-relations-and-validation" component={AnnotationExtensionRelationsAndValidation}/>
+	            							<Route path="/annotations" component={Annotations}/>				
 	            						</div>	              		              	           	
 	            					</Col>
 	            				</Row>
