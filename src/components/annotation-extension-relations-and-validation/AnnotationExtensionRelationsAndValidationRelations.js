@@ -24,8 +24,8 @@ const Cell = (props) => {
 	  if (column.name === 'action') {
 	    return <ActionCell  id={row.id} />;
 	  }
-	  return <Table.Cell {...props} />;
-	};
+	  return <Table.Cell {...props} />    
+};
 
 class AnnotationExtensionRelationsAndValidationRelations extends Component
 {
