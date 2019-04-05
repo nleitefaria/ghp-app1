@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, Row, Col } from 'reactstrap';
 import { Grid, Table, TableHeaderRow } from '@devexpress/dx-react-grid-bootstrap4';
 import AnnotationsInnerModal from './AnnotationsInnerModal';
+import AnnotationsGoIdModal from './AnnotationsGoIdModal';
 import Loading from '../Loading';
 
 const URL = 'https://www.ebi.ac.uk/QuickGO/services/annotation/search';
@@ -19,10 +20,19 @@ const ActionCell = ({ id }) => (
 		  </Table.Cell>
 );
 
+const GoIdCell = ({ id }) => (
+		  <Table.Cell>
+		    <span>
+				<AnnotationsGoIdModal id={id}/>
+		    </span>
+		  </Table.Cell>
+);
+
 const Cell = (props) => {
 	const { column, row } = props;
-	if (column.name === 'action') {
-		return <ActionCell  id={row.id} />;
+	
+	if (column.name === 'goId') {
+		return <GoIdCell  id={row.goId} />;
 	}
 	return <Table.Cell {...props} />    
 };
@@ -40,14 +50,14 @@ class AnnotationsInner extends Component
 				{ name: 'id', title: 'ID' },
 				{ name: 'geneProductId', title: 'Gene Product ID' },
 				{ name: 'goId', title: 'Gene Ontology ID' },
-				{ name: 'evidenceCode', title: 'Evidence Code' },
-				{ name: "action", title: "Action" }											
+				{ name: 'evidenceCode', title: 'Evidence Code' }							
 			],			
 			rows: [],
 			totalCount: 0,
 			modal: false
 		};
-		this.toggle = this.toggle.bind(this);		
+		this.toggle = this.toggle.bind(this);
+		this.toggleGo = this.toggleGo.bind(this);
 	}
 
 	componentDidMount()
@@ -64,6 +74,13 @@ class AnnotationsInner extends Component
 	{
 		this.setState({
 			modal: !this.state.modal
+		});
+	}
+	
+	toggleGo()
+	{
+		this.setState({
+			modalGo: !this.state.modalGo
 		});
 	}
 	
