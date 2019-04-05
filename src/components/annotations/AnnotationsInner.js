@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Card, Row, Col } from 'reactstrap';
 import { Grid, Table, TableHeaderRow } from '@devexpress/dx-react-grid-bootstrap4';
 import AnnotationsGoIdModal from './AnnotationsGoIdModal';
+import AnnotationsECOIdModal from './AnnotationsECOIdModal';
 import Loading from '../Loading';
 
 const URL = 'https://www.ebi.ac.uk/QuickGO/services/annotation/search';
@@ -19,11 +20,22 @@ const GoIdCell = ({ id }) => (
 		</Table.Cell>
 );
 
+const ECOIdCell = ({ id }) => (
+		<Table.Cell>
+		    <span>
+				<AnnotationsECOIdModal id={id}/>
+		    </span>
+		</Table.Cell>
+);
+
 const Cell = (props) => {
 	const { column, row } = props;
 	
 	if (column.name === 'goId') {
 		return <GoIdCell  id={row.goId} />;
+	}
+	if (column.name === 'evidenceCode') {
+		return <ECOIdCell  id={row.evidenceCode} />;
 	}
 	return <Table.Cell {...props} />    
 };
@@ -45,10 +57,13 @@ class AnnotationsInner extends Component
 			],			
 			rows: [],
 			totalCount: 0,
-			modal: false
+			modal: false,
+			modalGo: false,
+			modalECO: false
 		};
 		this.toggle = this.toggle.bind(this);
 		this.toggleGo = this.toggleGo.bind(this);
+		this.toggleECO = this.toggleECO.bind(this);
 	}
 
 	componentDidMount()
@@ -72,6 +87,13 @@ class AnnotationsInner extends Component
 	{
 		this.setState({
 			modalGo: !this.state.modalGo
+		});
+	}
+	
+	toggleECO()
+	{
+		this.setState({
+			modalECO: !this.state.modalECO
 		});
 	}
 	
