@@ -12,20 +12,12 @@ var divLoading =
     'float': 'left', 'width': '300px', 'paddingTop': '0px', 'paddingLeft': '10px'
 };
 
-const ActionCell = ({ id }) => (
-		  <Table.Cell>
-		    <span>
-				<AnnotationsInnerModal id={id}/>
-		    </span>
-		  </Table.Cell>
-);
-
 const GoIdCell = ({ id }) => (
-		  <Table.Cell>
+		<Table.Cell>
 		    <span>
 				<AnnotationsGoIdModal id={id}/>
 		    </span>
-		  </Table.Cell>
+		</Table.Cell>
 );
 
 const Cell = (props) => {
