@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Card, Row, Col } from 'reactstrap';
 import { Grid, Table, TableHeaderRow } from '@devexpress/dx-react-grid-bootstrap4';
-import AnnotationsInnerModal from './AnnotationsInnerModal';
 import AnnotationsGoIdModal from './AnnotationsGoIdModal';
 import Loading from '../Loading';
 
