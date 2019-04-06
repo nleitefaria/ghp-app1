@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Card, Row, Col } from 'reactstrap';
-import { Grid, Table, TableHeaderRow } from '@devexpress/dx-react-grid-bootstrap4';
+import { PagingState, CustomPaging} from '@devexpress/dx-react-grid';
+import { Grid, Table, TableHeaderRow, PagingPanel} from '@devexpress/dx-react-grid-bootstrap4';
 import AnnotationsGoIdModal from './AnnotationsGoIdModal';
 import AnnotationsECOIdModal from './AnnotationsECOIdModal';
 import Loading from '../Loading';
@@ -57,6 +58,8 @@ class AnnotationsInner extends Component
 			],			
 			rows: [],
 			totalCount: 0,
+		    pageSize: 10,
+		    currentPage: 0,
 			modal: false,
 			modalGo: false,
 			modalECO: false
@@ -64,6 +67,7 @@ class AnnotationsInner extends Component
 		this.toggle = this.toggle.bind(this);
 		this.toggleGo = this.toggleGo.bind(this);
 		this.toggleECO = this.toggleECO.bind(this);
+		this.changeCurrentPage = this.changeCurrentPage.bind(this);
 	}
 
 	componentDidMount()
@@ -97,11 +101,21 @@ class AnnotationsInner extends Component
 		});
 	}
 	
+	changeCurrentPage(currentPage)
+	{
+		   this.setState({
+		      // loading: true,
+		      currentPage: currentPage,
+		   });
+	}
+	
 	queryString()
 	{
-		return URL;
+		const { pageSize, currentPage } = this.state;
+		var cPage = Number(currentPage) + 1;
+		return URL + '?query=&limit=' + pageSize + '&page=' + cPage;
 	}
-
+	
 	loadData()
 	{
 	    const queryString = this.queryString();
@@ -109,12 +123,13 @@ class AnnotationsInner extends Component
 	      //this.setState({ loading: false });
 	      return;
 	    }
-
+	    
 	    fetch(queryString)
 	    	.then(response => response.json())
 	    	.then(data => this.setState({
-	    		rows: data.results,	    	
-	    		loading: false,
+	    		rows: data.results,
+		        totalCount: data.pageInfo.total,
+		        loading: false,
 	    }))
 	    .catch(() => this.setState({ loading: false }));
 	    this.lastQuery = queryString;
@@ -122,8 +137,7 @@ class AnnotationsInner extends Component
 
 	render()
 	{
-		const { error, rows, columns } = this.state;
-
+		const { error, rows, columns, pageSize, currentPage, totalCount } = this.state;
 		if (error)
 		{
 			return <div>Error: {error.message}</div>;
@@ -138,8 +152,11 @@ class AnnotationsInner extends Component
     	    	        </Row>
     	    	        <Card style={{ position: 'relative' }}>
     	    	        	<Grid rows={rows} columns={columns}>
-    	    	          		<Table cellComponent={Cell} />  	    	          		
-    	    	          			<TableHeaderRow />			
+    	    	        		<PagingState currentPage={currentPage} onCurrentPageChange={this.changeCurrentPage} pageSize={pageSize} />
+    	    	        			<CustomPaging totalCount={totalCount} />
+    	    	          				<Table cellComponent={Cell} />  	    	          		
+    	    	          					<TableHeaderRow />
+    	    	        						<PagingPanel />
     	    	          	</Grid>
     	    	        </Card>
     		        </div>
