@@ -16,6 +16,7 @@ import GeneOntology from './GeneOntology';
 import EvidenceConclusionOntology from './EvidenceConclusionOntology';
 import AnnotationExtensionRelationsAndValidation from './AnnotationExtensionRelationsAndValidation';
 import Annotations from './Annotations';
+import CoTerms from './CoTerms';
 	
 class Main extends Component 
 {
@@ -74,7 +75,8 @@ class Main extends Component
             												Annotations
             											</DropdownToggle>
             											<DropdownMenu>	            					          
-            												<DropdownItem><NavLink to="/annotations">Annotations</NavLink></DropdownItem>										
+            												<DropdownItem><NavLink to="/annotations">Annotations</NavLink></DropdownItem>
+            												<DropdownItem><NavLink to="/coterms">Co-occurring Terms</NavLink></DropdownItem>	
             											</DropdownMenu>
             										</Dropdown>
             									</Col>
@@ -87,7 +89,8 @@ class Main extends Component
 	            							<Route path="/gene-ontology" component={GeneOntology}/>
 	            							<Route path="/evidence-conclusion-ontology" component={EvidenceConclusionOntology}/>
 	            							<Route path="/annotation-extension-relations-and-validation" component={AnnotationExtensionRelationsAndValidation}/>
-	            							<Route path="/annotations" component={Annotations}/>				
+	            							<Route path="/annotations" component={Annotations}/>
+	            							<Route path="/coterms" component={CoTerms}/>						
 	            						</div>	              		              	           	
 	            					</Col>
 	            				</Row>

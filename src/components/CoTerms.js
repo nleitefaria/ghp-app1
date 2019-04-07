@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col, Breadcrumb, BreadcrumbItem} from 'reactstrap';
 import classnames from 'classnames';
-import AnnotationsInner from './annotations/AnnotationsInner';
+import CoTermsInner from './annotations/CoTermsInner';
 
-class Annotations extends Component
+class CoTerms extends Component
 {
 	constructor(props)
 	{
@@ -33,13 +33,13 @@ class Annotations extends Component
 	      <div>
 	      	<Breadcrumb>
 	      		<BreadcrumbItem><a href="/#/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
-	      		<BreadcrumbItem active>Annotations</BreadcrumbItem>
+	      		<BreadcrumbItem active>Co-ocurring Terms</BreadcrumbItem>
 	      	</Breadcrumb>
 	      	<br></br>
 	      	<Nav tabs>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }} >
-	              Annotations
+	            	Co-ocurring Terms
 	            </NavLink>
 	          </NavItem>		          
 	        </Nav>
@@ -47,7 +47,7 @@ class Annotations extends Component
 	          <TabPane tabId="1">
 	            <Row>
 	              <Col sm="12">
-					<AnnotationsInner></AnnotationsInner>
+					<CoTermsInner></CoTermsInner>
 	              </Col>
 	            </Row>
 	          </TabPane>	          
@@ -57,4 +57,4 @@ class Annotations extends Component
 	}
 }
 
-export default Annotations;
+export default CoTerms;

@@ -20,6 +20,8 @@ class Home extends Component {
 			      			- <NavLink to="/annotation-extension-relations-and-validation">Annotation Extension Relations and Validation Relations</NavLink>
 			      			<br></br>			      			
 			      			- <NavLink to="/annotations">Annotations</NavLink>
+			      			<br></br>			      			
+			      			- <NavLink to="/coterms">Co-occurring terms</NavLink>
 			      	</div>					   
 			      </div>
 			    );
