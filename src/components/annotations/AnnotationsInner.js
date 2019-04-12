@@ -104,7 +104,7 @@ class AnnotationsInner extends Component
 	changeCurrentPage(currentPage)
 	{
 		   this.setState({
-		      // loading: true,
+		      loading: true,
 		      currentPage: currentPage,
 		   });
 	}
@@ -119,8 +119,7 @@ class AnnotationsInner extends Component
 	loadData()
 	{
 	    const queryString = this.queryString();
-	    if (queryString === this.lastQuery) {
-	      //this.setState({ loading: false });
+	    if (queryString === this.lastQuery) {	      
 	      return;
 	    }
 	    
