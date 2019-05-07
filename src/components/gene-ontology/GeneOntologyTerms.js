@@ -20,13 +20,61 @@ const ActionCell = ({ id }) => (
   </Table.Cell>
 );
 
+const AspectCell = ({ aspect }) => (
+		<Table.Cell>
+	    <span>
+			<Aspect aspect={aspect}/>
+	    </span>
+	  </Table.Cell>
+);
+
 const Cell = (props) => {
   const { column, row } = props;
   if (column.name === 'action') {
     return <ActionCell  id={row.id} />;
   }
+  
+  if (column.name === 'aspect') {
+	    return <AspectCell  aspect={row.aspect} />
+  }
   return <Table.Cell {...props} />;
 };
+
+
+function Aspect(props) {
+	  const aspect = props.aspect;
+	  if (aspect === 'molecular_function') {
+	    return <MolecularFunction />;
+	  }
+	  if (aspect === 'cellular_component') {
+		    return <CellularComponent />;
+	  }
+	  if (aspect === 'biological_process') {
+		    return <BiologicalProcess />;
+      }
+	  return <span></span>;
+}
+
+function MolecularFunction(props) {
+	var styles = {
+			color: '#0000FF',
+		  };
+	  return <span style={styles}>Molecular Function</span>;
+}
+
+function CellularComponent(props) {
+	var styles = {
+			color: '#FF0000',
+		  };
+	  return <span style={styles}>Cellular Component</span>;
+}
+
+function BiologicalProcess(props) {
+	var styles = {
+			color: '#008000',
+		  };
+	  return <span style={styles}>Biological Process</span>;
+}
 
 class GeneOntologyTerms extends React.PureComponent
 {
