@@ -57,21 +57,27 @@ function Aspect(props) {
 
 function MolecularFunction(props) {
 	var styles = {
-			color: '#0000FF',
+			color: '#FFFFFF',
+			fontWeight: 'bold', 
+			backgroundColor: '#00BFFF'			
 		  };
 	  return <span style={styles}>Molecular Function</span>;
 }
 
 function CellularComponent(props) {
-	var styles = {
-			color: '#FF0000',
+	var styles = {			
+			color: '#FFFFFF',
+			fontWeight: 'bold',
+			backgroundColor: '#F08080'
 		  };
 	  return <span style={styles}>Cellular Component</span>;
 }
 
 function BiologicalProcess(props) {
 	var styles = {
-			color: '#008000',
+			color: '#FFFFFF',
+			fontWeight: 'bold',
+			backgroundColor: '#3CB371'			
 		  };
 	  return <span style={styles}>Biological Process</span>;
 }
