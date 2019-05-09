@@ -59,7 +59,8 @@ function MolecularFunction(props) {
 	var styles = {
 			color: '#FFFFFF',
 			fontWeight: 'bold', 
-			backgroundColor: '#00BFFF'			
+			backgroundColor: '#00BFFF', 
+			padding: '3px'	
 		  };
 	  return <span style={styles}>Molecular Function</span>;
 }
@@ -68,7 +69,8 @@ function CellularComponent(props) {
 	var styles = {			
 			color: '#FFFFFF',
 			fontWeight: 'bold',
-			backgroundColor: '#F08080'
+			backgroundColor: '#F08080', 
+			padding: '3px'	
 		  };
 	  return <span style={styles}>Cellular Component</span>;
 }
@@ -77,7 +79,8 @@ function BiologicalProcess(props) {
 	var styles = {
 			color: '#FFFFFF',
 			fontWeight: 'bold',
-			backgroundColor: '#3CB371'			
+			backgroundColor: '#3CB371', 
+			padding: '3px'				
 		  };
 	  return <span style={styles}>Biological Process</span>;
 }
