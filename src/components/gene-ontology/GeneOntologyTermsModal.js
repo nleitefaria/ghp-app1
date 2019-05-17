@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Aspect from '../common/Aspect';
 
 const URL = 'https://www.ebi.ac.uk/QuickGO/services/ontology/go/terms/';
 
@@ -85,7 +86,7 @@ class GeneOntologyTermsModal extends React.PureComponent
                           </Row>
                           <Row>
                             <Col xs="2"><b>Aspect:</b></Col>
-                            <Col xs="10"><div>{d.aspect}</div></Col>
+                            <Col xs="10"><div><Aspect aspect={d.aspect}/></div></Col>
                           </Row>
                           <Row>
                             <Col xs="12"><hr></hr></Col>
