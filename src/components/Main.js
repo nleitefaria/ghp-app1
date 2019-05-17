@@ -16,7 +16,8 @@ import GeneOntology from './GeneOntology';
 import EvidenceConclusionOntology from './EvidenceConclusionOntology';
 import AnnotationExtensionRelationsAndValidation from './AnnotationExtensionRelationsAndValidation';
 import Annotations from './Annotations';
-	
+
+
 class Main extends Component 
 {
 	constructor(props) {
@@ -58,7 +59,7 @@ class Main extends Component
 	            									</Col>
 	            									<Col xs="auto">            							
 	            										<Dropdown isOpen={this.state.dropdown1Open} toggle={this.toggle1}>
-	            											<DropdownToggle caret color="link">
+	            											<DropdownToggle caret color="link" >
 	            												Ontologies
 	            											</DropdownToggle>
 	            											<DropdownMenu>	            					          

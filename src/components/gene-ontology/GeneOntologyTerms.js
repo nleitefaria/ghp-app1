@@ -60,7 +60,10 @@ function MolecularFunction(props) {
 			color: '#FFFFFF',
 			fontWeight: 'bold', 
 			backgroundColor: '#00BFFF', 
-			padding: '3px'	
+			padding: '3px',
+			textAlign:'center',
+			width: '90%',
+			display: 'inline-block'
 		  };
 	  return <span style={styles}>Molecular Function</span>;
 }
@@ -70,7 +73,10 @@ function CellularComponent(props) {
 			color: '#FFFFFF',
 			fontWeight: 'bold',
 			backgroundColor: '#F08080', 
-			padding: '3px'	
+			padding: '3px',
+			textAlign:'center',
+			width: '90%',
+			display: 'inline-block'	
 		  };
 	  return <span style={styles}>Cellular Component</span>;
 }
@@ -80,7 +86,10 @@ function BiologicalProcess(props) {
 			color: '#FFFFFF',
 			fontWeight: 'bold',
 			backgroundColor: '#3CB371', 
-			padding: '3px'				
+			padding: '3px',
+			textAlign:'center',
+			width: '90%',
+			display: 'inline-block'				
 		  };
 	  return <span style={styles}>Biological Process</span>;
 }
