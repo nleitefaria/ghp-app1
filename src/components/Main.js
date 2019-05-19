@@ -17,7 +17,6 @@ import EvidenceConclusionOntology from './EvidenceConclusionOntology';
 import AnnotationExtensionRelationsAndValidation from './AnnotationExtensionRelationsAndValidation';
 import Annotations from './Annotations';
 
-
 class Main extends Component 
 {
 	constructor(props) {

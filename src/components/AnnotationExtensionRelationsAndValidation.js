@@ -34,13 +34,11 @@ class AnnotationExtensionRelationsAndValidation extends Component
 	      	<Breadcrumb>
 	      		<BreadcrumbItem><a href="/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
 	      		<BreadcrumbItem active>Annotation Extension Relations and Validation</BreadcrumbItem>
-	      	</Breadcrumb>
-	      	<br></br>
-
+	      	</Breadcrumb>	     
 	      	<Nav tabs>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }} >
-	            	Relations
+	            	<b>Relations</b>
 	            </NavLink>
 	          </NavItem>	          
 	        </Nav>

@@ -35,11 +35,10 @@ class Annotations extends Component
 	      		<BreadcrumbItem><a href="/#/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
 	      		<BreadcrumbItem active>Annotations</BreadcrumbItem>
 	      	</Breadcrumb>
-	      	<br></br>
 	      	<Nav tabs>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }} >
-	              Annotations
+	              <b>Annotations</b>
 	            </NavLink>
 	          </NavItem>		          
 	        </Nav>

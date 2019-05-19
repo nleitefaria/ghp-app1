@@ -37,22 +37,22 @@ class GeneOntology extends Component
 	      		<BreadcrumbItem><a href="/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
 	      		<BreadcrumbItem active>Gene Ontology</BreadcrumbItem>
 	      	</Breadcrumb>
-	      	<br></br>
+	      	
 
 	      	<Nav tabs>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }} >
-	              Terms
+	              <b>Terms</b>
 	            </NavLink>
 	          </NavItem>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }} >
-	              Search
+	              <b>Search</b>
 	            </NavLink>
 	          </NavItem>	          
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '4' })} onClick={() => { this.toggle('4'); }} >
-	              About
+	              <b>About</b>
 	            </NavLink>
 	          </NavItem>
 	        </Nav>

@@ -38,17 +38,15 @@ class EvidenceConclusionOntology extends Component
 	      		<BreadcrumbItem><a href="/" rel="noopener noreferrer">Home</a></BreadcrumbItem>
 	      		<BreadcrumbItem active>Evidence and Conclusion Ontology</BreadcrumbItem>
 	      	</Breadcrumb>
-	      	<br></br>
-
 	      	<Nav tabs>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '1' })} onClick={() => { this.toggle('1'); }} >
-	              Terms
+	              <b>Terms</b>
 	            </NavLink>
 	          </NavItem>
 	          <NavItem>
 	            <NavLink className={classnames({ active: this.state.activeTab === '2' })} onClick={() => { this.toggle('2'); }} >
-	              Search
+	              <b>Search</b>
 	            </NavLink>
 	          </NavItem>	          
 	        </Nav>
