@@ -47,7 +47,7 @@ class Main extends Component
 	    		<HashRouter>
 	            	<div>
 	            		<div>								
-	            			<Container>
+                                            <Container className="app-container">
 	            				<Row>
 	            					<Col>
 	            						<div className="header">	            							
