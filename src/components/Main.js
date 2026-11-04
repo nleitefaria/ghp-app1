@@ -51,7 +51,7 @@ class Main extends Component
 	            				<Row>
 	            					<Col>
 	            						<div className="header">	            							
-	            							<Container>
+									<Container className="app-menu">
 	            								<Row>
 	            									<Col xs="auto">	            								            								
 	            										<Button color="link"><NavLink to="/">Home</NavLink></Button>
